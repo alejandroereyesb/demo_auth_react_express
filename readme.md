@@ -43,9 +43,12 @@ The client will be available at [http://localhost:3000](http://localhost:3000) a
 
 1. Create a `.env` file with the following variables. You can copy the content of `.env.example.production`:
    ```env
-   MONGO_URI=mongodb://localhost:27017/bbdd_auth
-   MY_TOKEN_SECRET=your_secret_key
-   NODE_ENV=production
+    MONGO_URI=mongodb://localhost:27017/bbdd_auth
+    MY_TOKEN_SECRET=Op9WwkTeh45k0
+    # DB_SSL=true con MongoDB Atlas
+    DB_SSL=false
+    # Production
+    NODE_ENV=production
    ```
 
 2. Build the client and start the server:
