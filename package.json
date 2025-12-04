@@ -7,7 +7,7 @@
   "scripts": {
     "client": "npm start --prefix client",
     "install:client": "npm install --prefix client",
-    "server": "nodemon index.js",
+    "server": "node index.js",
     "build": "npm run build --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "npm run build && node index.js",

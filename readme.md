@@ -1,4 +1,4 @@
-# Role authentication FullStack MERN app with JWT
+# Role authentication FullStack MERN app with JWT + OAuth Google
 
 You can visit a deployed version of this app [here](https://demo-auth-react-express.onrender.com/).
 
@@ -26,13 +26,21 @@ To see authentication only with headers check the branch 'auth_headers'.
 
 
    Create a `.env` file in the root directory and add the following variables. You can copy the content of `.env.example.development`:
+
    ```env
-    MONGO_URI=mongodb://localhost:27017/bbdd_auth
-    MY_TOKEN_SECRET=Op9WwkTeh45k0
-    # DB_SSL=true con MongoDB Atlas
-    DB_SSL=false
-    # Development
-    NODE_ENV=development
+      MONGO_URI=mongodb://localhost:27017/bbdd_auth
+      MY_TOKEN_SECRET=Op9WwkTeh45k0
+      DB_SSL=false
+
+      # Development
+      NODE_ENV=development
+
+      # Google OAuth
+      GOOGLE_CLIENT_ID=
+      GOOGLE_CLIENT_SECRET=
+      GOOGLE_CALLBACK_URL=http://localhost:5000/api/users/google/callback
+
+      FRONTEND_URL=http://localhost:3000
    ```
 2. Start the server and client:
    ```bash
@@ -100,6 +108,15 @@ This endpoint must:
 - Retrieve user role from the database using provided credentials
 - Set Authorization header
 - Send cookie
+
+5. Login with Google
+
+This endpoint must:
+- Redirect the user to the Google OAuth consent screen.
+- Retrieve the user's Google profile information after successful authentication.
+- Check if the user exists in the database; if not, create a new user with the default role.
+- Generate an access token and set it as a cookie.
+- Redirect the user to the frontend with the logged-in state.
 
 
 ## React 
